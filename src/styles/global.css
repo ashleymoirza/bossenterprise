@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-dark: #1a1a2e;
+  --color-brand-darker: #0f0f1a;
+  --color-brand-accent: #f59e0b;
+  --color-brand-accent-light: #fbbf24;
+  --color-brand-gray: #6b7280;
+  --color-brand-light: #f3f4f6;
+  --font-family-heading: 'Inter', system-ui, sans-serif;
+  --font-family-body: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-family-body);
+  }
+}

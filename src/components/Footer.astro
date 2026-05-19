@@ -1,0 +1,69 @@
+---
+const logoWhite = '/assets/logos/boss-consult-logo-white.png';
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-brand-darker text-gray-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-12">
+      <!-- Logo & Description -->
+      <div class="space-y-3">
+        <img src={logoWhite} alt="BOSS Consult" class="h-12 w-auto" />
+        <p class="text-sm text-gray-400 leading-relaxed">
+          BOSS Consult comprises dedicated and ambitious individuals who are deeply invested in creating a positive impact on the world.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="space-y-3">
+        <h3 class="text-white font-semibold">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="/" class="text-sm font-medium text-gray-400 hover:text-brand-accent">Home</a></li>
+          <li><a href="/about" class="text-sm font-medium text-gray-400 hover:text-brand-accent">About Us</a></li>
+          <li><a href="/employers" class="text-sm font-medium text-gray-400 hover:text-brand-accent">Employers</a></li>
+          <li><a href="/candidates" class="text-sm font-medium text-gray-400 hover:text-brand-accent">Candidates</a></li>
+          <li><a href="/jobs" class="text-sm font-medium text-gray-400 hover:text-brand-accent">Jobs</a></li>
+          <li><a href="/contact" class="text-sm font-medium text-gray-400 hover:text-brand-accent">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="space-y-3">
+        <h3 class="text-white font-semibold">Contact Info</h3>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-4">
+            <span class="text-brand-accent">&#9742;</span>
+            <a href="tel:+27632404447" class="text-sm text-gray-400 hover:text-brand-accent">+27 63 240 4447</a>
+          </li>
+          <li class="flex items-center gap-4">
+            <span class="text-brand-accent">&#9993;</span>
+            <a href="mailto:gaylene@bossenterprise.co.za" class="text-sm text-gray-400 hover:text-brand-accent">gaylene@bossenterprise.co.za</a>
+          </li>
+          <li class="flex items-center gap-4">
+            <span class="text-brand-accent">&#9906;</span>
+            <span class="text-sm text-gray-400">Cape Town, Western Cape</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Follow Us -->
+      <div class="space-y-3">
+        <h3 class="text-white font-semibold">Follow Us</h3>
+        <div class="flex gap-4">
+          <a href="https://www.facebook.com/teambossbabe/" class="text-sm font-medium text-gray-400 hover:text-brand-accent" target="_blank" rel="noopener noreferrer">FB</a>
+          <a href="https://www.linkedin.com/company/boss-babe-enterprise/" class="text-sm font-medium text-gray-400 hover:text-brand-accent" target="_blank" rel="noopener noreferrer">LI</a>
+          <a href="https://www.instagram.com/boss_babeenterprise" class="text-sm font-medium text-gray-400 hover:text-brand-accent" target="_blank" rel="noopener noreferrer">IG</a>
+        </div>
+        <p class="text-xs text-gray-500">&copy; {year} BOSS Consult. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-white/10 py-4 text-center">
+    <p class="text-xs text-gray-500">
+      Powered by <a href="https://fully-booked.co.za" class="text-brand-accent hover:text-white">Fully-Booked</a>
+      | <a href="/privacy-policy" class="text-brand-accent hover:text-white">Privacy Policy</a>
+    </p>
+  </div>
+</footer>

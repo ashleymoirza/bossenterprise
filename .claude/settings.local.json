@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm uninstall *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(python3 *)",
+      "Bash(npx astro *)",
+      "Bash(npx vite *)",
+      "Bash(node -e \"const fs = require\\('fs'\\).readFileSync\\('src/pages/candidates.astro','utf8'\\).split\\('\\\\n'\\).forEach\\(\\(l,i\\)=>{if\\(l.includes\\('<svg'\\)&&!l.includes\\('</svg>'\\)\\)console.log\\('Missing </svg> at line',i+1\\);}\\)\")",
+      "Bash(cp -r /Users/ashleymoir/Downloads/free-claude-code-main/bossenterprise.co.za/assets/logos/* /Users/ashleymoir/Downloads/free-claude-code-main/bossenterprise.co.za/public/assets/logos/)",
+      "Bash(cp /Users/ashleymoir/Downloads/free-claude-code-main/bossenterprise.co.za/assets/logos/* /Users/ashleymoir/Downloads/free-claude-code-main/bossenterprise.co.za/public/assets/logos/)",
+      "Bash(curl -s http://localhost:4321/)",
+      "Bash(curl -s http://localhost:4321/jobs/)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}

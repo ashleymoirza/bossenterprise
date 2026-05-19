@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const jobCategories = ['All', 'Data Science', 'Development', 'Tech Leadership'];
+const jobTypes = ['Permanent', 'Contract'];
+const locations = ['Cape Town', 'Remote', 'Johannesburg'];
+---
+
+<BaseLayout title="Job Listings - BOSS Consult | Tech Jobs in South Africa" description="Browse current tech job openings in Data Science, Software Development, and IT leadership through BOSS Consult recruitment agency.">
+  <main class="pt-24">
+    <section class="bg-brand-dark text-white py-20 lg:py-28" x-data="{ search: '', category: 'All' }">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-6">Job Listings</h1>
+        <p class="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+          Explore current opportunities across Data Science, Development, and Tech. We connect exceptional talent with leading companies.
+        </p>
+        <div class="max-w-2xl mx-auto flex flex-col sm:flex-row gap-4">
+          <input type="text" x-model="search" placeholder="Search jobs..." class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-brand-accent outline-none" />
+          <select x-model="category" class="px-4 py-3 rounded-lg text-gray-900 bg-white focus:ring-2 focus:ring-brand-accent outline-none">
+            <option value="All">All Categories</option>
+            <option value="Data Science">Data Science</option>
+            <option value="Development">Development</option>
+            <option value="Tech Leadership">Tech Leadership</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-brand-light" x-data="{
+      search: '',
+      category: 'All',
+      jobs: [
+        { title: 'Senior Data Scientist', category: 'Data Science', location: 'Johannesburg', type: 'Permanent', description: 'Lead ML model development and drive data-driven decision making for a leading fintech company.' },
+        { title: 'Junior Data Analyst', category: 'Data Science', location: 'Cape Town', type: 'Permanent', description: 'Analyse business data and create insightful dashboards for finance sector client.' },
+        { title: 'Machine Learning Engineer', category: 'Data Science', location: 'Remote', type: 'Contract', description: 'Build and deploy ML pipelines for a SaaS platform serving African markets.' },
+        { title: 'Full-Stack Developer', category: 'Development', location: 'Cape Town', type: 'Permanent', description: 'Develop web applications using React, Node.js, and cloud services for an e-commerce startup.' },
+        { title: 'Backend Engineer', category: 'Development', location: 'Remote', type: 'Permanent', description: 'Design and implement scalable APIs using Python and AWS for a health tech company.' },
+        { title: 'Frontend Developer', category: 'Development', location: 'Johannesburg', type: 'Contract', description: 'Build responsive UIs with Vue.js and TypeScript for a enterprise SaaS platform.' },
+        { title: 'Mobile Developer', category: 'Development', location: 'Cape Town', type: 'Permanent', description: 'Develop cross-platform mobile apps using React Native for a logistics startup.' },
+        { title: 'Engineering Manager', category: 'Tech Leadership', location: 'Cape Town', type: 'Permanent', description: 'Lead engineering teams building scalable platforms for a fast-growing tech company.' },
+        { title: 'Solutions Architect', category: 'Tech Leadership', location: 'Remote', type: 'Contract', description: 'Design technical solutions and guide architecture decisions for enterprise clients.' },
+        { title: 'DevOps Lead', category: 'Tech Leadership', location: 'Johannesburg', type: 'Permanent', description: 'Lead infrastructure automation, CI/CD pipelines, and cloud operations for a financial services firm.' }
+      ],
+      get filteredJobs() {
+        return this.jobs.filter(job => {
+          const matchesSearch = job.title.toLowerCase().includes(this.search.toLowerCase()) ||
+            job.description.toLowerCase().includes(this.search.toLowerCase())
+          const matchesCategory = this.category === 'All' || job.category === this.category;
+          return matchesSearch && matchesCategory;
+        });
+      }
+    }">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <template x-if="filteredJobs.length === 0">
+          <div class="text-center py-16">
+            <h2 class="text-2xl font-bold text-brand-dark mb-4">No Matching Jobs</h2>
+            <p class="text-gray-600 mb-6">No jobs match your current filters. Try different keywords or browse all categories.</p>
+            <button @click="search = ''; category = 'All'" class="px-6 py-2 bg-brand-accent hover:bg-brand-accent-light text-white rounded-lg transition-colors">Clear Filters</button>
+          <div style="margin-top: 1rem; text-align: center;">
+            <p class="text-gray-500 text-sm">Don't see what you're looking for? <a href="/contact" class="text-brand-accent hover:underline">Submit your CV</a> and we'll find the right role for you.</p>
+          </div>
+          </div>
+        </template>
+
+        <div class="space-y-4">
+          <template x-for="job in filteredJobs" :key="job.title">
+            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <h3 class="text-lg font-semibold text-brand-dark" x-text="job.title"></h3>
+                  <p class="text-gray-600 mt-1" x-text="job.description"></p>
+                  <div class="flex flex-wrap gap-2 mt-3">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-brand-accent/10 text-brand-accent" x-text="job.category"></span>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600" x-text="job.location"></span>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-brand-dark/10 text-brand-dark" x-text="job.type"></span>
+                  </div>
+                </div>
+                <a :href="'/contact?subject=' + encodeURIComponent('Application for ' + job.title)" class="shrink-0 px-5 py-2 bg-brand-accent hover:bg-brand-accent-light text-white text-sm font-medium rounded-lg transition-colors text-center">Apply</a>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <div class="text-center mt-12 pt-8 border-t border-gray-200">
+          <p class="text-gray-500 mb-4">Don't see the right role? We're always looking for great talent.</p>
+          <a href="/contact" class="inline-flex items-center px-6 py-3 bg-brand-dark hover:bg-brand-darker text-white font-semibold rounded-lg transition-colors">Submit Your CV</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
