@@ -1,128 +1,47 @@
-# BOSS Enterprise Website Recovery & Redeployment Plan
+# PLAN: Restore Content to Match Web Archive (Aug 2025)
 
-## PROJECT OVERVIEW
+## Objective
+Update all page content to match the August 2025 Wayback Machine archive, applying proper responsive spacing (web/tablet/mobile). Preserve all existing color/font/button styles (already verified 1:1 with archive).
 
-Migrate from Hostinger's proprietary website builder to a custom-coded, locally-managed tech recruitment website. The original site is inaccessible due to hosting plan expiration and 403 Forbidden errors.
+## Archive Reference
+- Source: `assets/recovered/website-content.html` + Wayback Machine CSS (post-48, post-55, post-61, post-64)
+- Colors, fonts, button styles — already match archive exactly ✅
 
-## PHASE 1: CONTENT RECOVERY (Completed)
+## Content Gaps (from archive comparison)
 
-### Status: ✅ COMPLETED
-- **Wayback Machine Archive**: Successfully recovered from Aug 2025 snapshot
-- **Assets Downloaded**: All logos, images, and branding assets
-- **Content Extracted**: Full HTML structure and styling information
-- **Technical Analysis**: WordPress + Elementor site confirmed
+| # | File | What's Missing/Mismatched |
+|---|------|--------------------------|
+| 1 | `index.astro` | **8 Core Values strip** — completely missing. Archive has: Passion, Care, Integrity, Transparency, Accountability, Respect, Independence, Courage with icons on gradient bg |
+| 2 | `index.astro` | **Testimonials** — archive has a carousel with 6 different reviewers (Lisa Anne La Vita, Jomosne Conway Geduld, Masiyenze Mpisi, Vaughan Karriem, Unathi Magodla, Nkosinathi Mbali). Current has 4 static cards with Google review excerpts |
+| 3 | `index.astro` | **Client logos** — archive has 9 specific clients: Clothing Junction, African Ideas, Victory Lab, Senqu, HumanInsights, Hbook, Goodwall, EasyPay, CMS Software Solutions. Current has generic client-logo-1/2/3 + 3 named logos |
+| 4 | All pages | **Mobile responsive spacing** — ensure consistent padding on small screens |
 
-### Recovery Assets:
-- Boss Baby Enterprise Logo (53KB, .webp)
-- Boss Consult Logo (8.2KB, .png)  
-- Hero image (164KB, .webp)
-- Client/partner logos (3+ partners)
-- Complete website HTML (169KB)
+## Implementation Steps
 
-## PHASE 2: DEVELOPMENT PLAN
+### Step 1: `index.astro` — Add 8 Core Values strip
+- Insert after "Why Choose Us?" section, on gradient bg (`from-brand-hero to-brand-dark`)
+- 8 values with SVG icons in responsive grid (4-col desktop, 2-col tablet, 1-col mobile)
 
-### Technology Stack
-- **Framework**: Astro (static site generator with islands architecture)
-- **Styling**: Tailwind CSS (utility-first CSS framework)
-- **Interactivity**: Alpine.js for lightweight client-side features
-- **Deployment**: Static files to Hostinger shared hosting
+### Step 2: `index.astro` — Replace testimonials with archive content
+- Update reviewer names and quotes to match archive
+- Keep existing card layout (not adding JS carousel — simpler and correct)
 
-### Site Structure
-```
-/
-├── index.html              # Home page (hero, services, testimonials)
-├── jobs/                  # Job listings board
-├── apply/                 # Application form
-├── employers/             # Employer portal section
-├── blog/                  # Industry articles/news
-├── contact/               # Contact page with form
-└── assets/               # Images, logos, styles
-```
+### Step 3: `index.astro` — Update client logos
+- Replace generic logo names with archive-matching labels
+- Ensure responsive grid layout
 
-### Key Features Implementation
-1. **Job Listings Board**
-   - Searchable/filterable job postings
-   - Categories (Data Science, Development, etc.)
-   - Location filters
-   - Apply buttons
+### Step 4: Responsive spacing audit
+- Add responsive padding/margin classes throughout all pages
+- Mobile-first: `px-4 sm:px-6 lg:px-8` pattern consistent
+- Hero section responsive padding
 
-2. **Candidate Application Form**
-   - File upload for CV
-   - Contact information fields
-   - Email notifications on submission
-   - PHP backend on Hostinger
+### Step 5: `about.astro` — Add client logos section
+- Add "Trusted By" section matching homepage pattern
 
-3. **Client/Employer Portal**
-   - Vacancy submission form
-   - Candidate browsing (if needed)
-   - Staffing request interface
+### Step 6: Build & verify
+- `npm run build` — zero errors
+- `npm run dev` — localhost link for user confirmation
 
-4. **Blog/Content Section**
-   - Article listing
-   - Individual post pages
-   - SEO optimization
-
-## PHASE 3: DEPLOYMENT & CONNECTIVITY
-
-### Hostinger Configuration
-1. **FTP Access**: Ensure credentials ready for deployment
-2. **Domain Setup**: Verify DNS configuration
-3. **SSL Certificate**: Install free Let's Encrypt SSL
-4. **PHP Setup**: Enable PHP for contact forms
-
-### Deployment Steps
-1. Build static site: `npm run build`
-2. Upload `/dist/*` to `/public_html/`
-3. Set up PHP contact forms
-4. Test all functionality
-5. Monitor for 404 errors
-
-### Post-Deployment
-- Set up regular local backups
-- Implement content update workflow
-- Monitor site performance
-- Update Google Analytics if needed
-
-## IMPLEMENTATION TIMELINE
-
-### Week 1: Setup & Foundation
-- [ ] Initialize Astro project
-- [ ] Set up Tailwind CSS
-- [ ] Create base layout components
-- [ ] Import recovered assets
-
-### Week 2: Core Pages
-- [ ] Build homepage with recovered content
-- [ ] Create job listings structure
-- [ ] Implement basic navigation
-- [ ] Style with Tailwind CSS
-
-### Week 3: Interactive Features
-- [ ] Add Alpine.js for interactivity
-- [ ] Build job search/filter functionality
-- [ ] Create application form
-- [ ] Implement PHP contact handling
-
-### Week 4: Polish & Deployment
-- [ ] Responsive design testing
-- [ ] Performance optimization
-- [ ] SEO setup
-- [ ] Deploy to Hostinger
-- [ ] Final testing and validation
-
-## SUCCESS METRICS
-
-- Site loads without 403 errors
-- All pages responsive and functional
-- Contact forms working with PHP backend
-- Job listings searchable and filterable
-- Mobile-friendly across all devices
-- SEO meta tags optimized
-- Fast load times (< 3 seconds)
-
-## RISK MITIGATION
-
-- **Backup Strategy**: Local copies of all assets and code
-- **Rollback Plan**: Keep old HTML for quick restoration
-- **Testing**: Local preview before deployment
-- **Monitoring**: Regular checks for issues after deployment
+## Risks
+- Some archive client logos (Victory Lab, HumanInsights, Hbook, Goodwall, EasyPay, CMS Software) don't have local images — will use alt text with logo file paths
+- No archive content for contact/jobs pages — those stay as-is with correct styling

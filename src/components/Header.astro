@@ -2,24 +2,62 @@
 const logoWhite = '/assets/logos/boss-consult-logo-white.png';
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-brand-dark border-b border-white/10">
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#212121]/70 backdrop-blur-sm border-b border-white/10" x-data="{ mobileOpen: false }">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-20">
       <a href="/" class="flex-shrink-0">
         <img src={logoWhite} alt="BOSS Consult" class="h-10 lg:h-12 w-auto" />
-      </a><nav class="hidden lg:flex items-center space-x-8">
-        <a href="/" class="text-white hover:text-brand-accent transition-colors text-sm font-medium">Home</a>
-        <a href="/about" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">About Us</a>
-        <a href="/employers" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Employers</a>
-        <a href="/candidates" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Candidates</a>
-        <a href="/jobs" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Jobs</a>
-        <a href="/contact" class="inline-flex items-center px-5 py-2.5 bg-brand-accent hover:bg-brand-accent-light text-white rounded-md text-sm font-medium transition-colors">Contact Us</a>
+      </a>
+      <nav class="hidden lg:flex items-center space-x-8">
+        <a href="/" class="text-white hover:text-brand-accent-hover transition-colors text-sm font-medium">Home</a>
+        <a href="/about" class="text-brand-gray-lighter hover:text-brand-accent-hover transition-colors text-sm font-medium">About Us</a>
+        <a href="/employers" class="text-brand-gray-lighter hover:text-brand-accent-hover transition-colors text-sm font-medium">Employers</a>
+        <a href="/candidates" class="text-brand-gray-lighter hover:text-brand-accent-hover transition-colors text-sm font-medium">Candidates</a>
+        <a href="/jobs" class="text-brand-gray-lighter hover:text-brand-accent-hover transition-colors text-sm font-medium">Jobs</a>
+        <a href="/contact" class="inline-flex items-center px-5 py-2.5 border border-white text-white font-[family-name:var(--font-family-accent)] uppercase tracking-[5.2px] text-sm transition-colors hover:bg-white hover:text-brand-deep">Contact Us</a>
       </nav>
-      <button class="lg:hidden p-2 text-gray-400 hover:text-white" aria-label="Toggle menu">
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div class="hidden lg:flex items-center space-x-2 ml-6">
+        <a href="https://www.facebook.com/teambossbabe/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center bg-brand-hero text-white hover:bg-brand-accent transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.076v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.028 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/boss-babe-enterprise/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center bg-brand-hero text-white hover:bg-brand-accent transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.065 2.065zm1.782 13.019H3.555V9h3.569v11.452zm16.882-16.452c0 1.14-.925 2.063-2.065 2.063-1.14 0-2.063-.925-2.063-2.065 0-1.138.925-2.063 2.063-2.063 1.14 0 2.065.925 2.065 2.063z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/boss_consultenterprise?igsh=dXcyMG45eHdndWht" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center bg-brand-hero text-white hover:bg-brand-accent transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.645-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358-2.618 6.78-6.98 6.98C8.668 23.986 8.259 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.98-6.98.058-1.28.072-1.689.072-3.948 0-3.259-.014-3.668-.072-4.948-.2-4.358-2.618-6.78-6.98-6.98C15.668.014 15.259 0 12 0z"/></svg>
+        </a>
+      </div>
+      <button @click="mobileOpen = !mobileOpen" class="lg:hidden p-2 text-brand-gray-light hover:text-white transition-colors" aria-label="Toggle menu">
+        <svg x-show="!mobileOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
+        <svg x-show="mobileOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
       </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div x-show="mobileOpen" @click.away="mobileOpen = false" x-cloak class="lg:hidden bg-brand-deep border-t border-white/10">
+    <div class="px-4 py-4 space-y-2">
+      <a href="/" @click="mobileOpen = false" class="block px-4 py-3 text-brand-gray-lighter hover:text-brand-magenta transition-colors font-medium">Home</a>
+      <a href="/about" @click="mobileOpen = false" class="block px-4 py-3 text-brand-gray-lighter hover:text-brand-magenta transition-colors font-medium">About Us</a>
+      <a href="/employers" @click="mobileOpen = false" class="block px-4 py-3 text-brand-gray-lighter hover:text-brand-magenta transition-colors font-medium">Employers</a>
+      <a href="/candidates" @click="mobileOpen = false" class="block px-4 py-3 text-brand-gray-lighter hover:text-brand-magenta transition-colors font-medium">Candidates</a>
+      <a href="/jobs" @click="mobileOpen = false" class="block px-4 py-3 text-brand-gray-lighter hover:text-brand-magenta transition-colors font-medium">Jobs</a>
+      <a href="/contact" @click="mobileOpen = false" class="block px-4 py-3 text-brand-gray-lighter hover:text-brand-magenta transition-colors font-medium">Contact Us</a>
+      <div class="flex gap-3 px-4 pt-4 pb-2">
+        <a href="https://www.facebook.com/teambossbabe/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center bg-brand-hero text-white hover:bg-brand-accent transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.076v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.028 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/boss-babe-enterprise/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center bg-brand-hero text-white hover:bg-brand-accent transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.065 2.065zm1.782 13.019H3.555V9h3.569v11.452zm16.882-16.452c0 1.14-.925 2.063-2.065 2.063-1.14 0-2.063-.925-2.063-2.065 0-1.138.925-2.063 2.063-2.063 1.14 0 2.065.925 2.065 2.063z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/boss_consultenterprise?igsh=dXcyMG45eHdndWht" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center bg-brand-hero text-white hover:bg-brand-accent transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.645-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358-2.618 6.78-6.98 6.98C8.668 23.986 8.259 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.98-6.98.058-1.28.072-1.689.072-3.948 0-3.259-.014-3.668-.072-4.948-.2-4.358-2.618-6.78-6.98-6.98C15.668.014 15.259 0 12 0z"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </header>

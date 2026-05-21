@@ -10,7 +10,7 @@ const locations = ['Cape Town', 'Remote', 'Johannesburg'];
   <main class="pt-24">
     <section class="bg-brand-dark text-white py-20 lg:py-28" x-data="{ search: '', category: 'All' }">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl lg:text-5xl font-bold mb-6">Job Listings</h1>
+        <h1 class="mb-6">Job Listings</h1>
         <p class="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
           Explore current opportunities across Data Science, Development, and Tech. We connect exceptional talent with leading companies.
         </p>
@@ -53,7 +53,7 @@ const locations = ['Cape Town', 'Remote', 'Johannesburg'];
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <template x-if="filteredJobs.length === 0">
           <div class="text-center py-16">
-            <h2 class="text-2xl font-bold text-brand-dark mb-4">No Matching Jobs</h2>
+            <h2 class="font-[family-name:var(--font-family-heading)] text-brand-dark mb-4">No Matching Jobs</h2>
             <p class="text-gray-600 mb-6">No jobs match your current filters. Try different keywords or browse all categories.</p>
             <button @click="search = ''; category = 'All'" class="px-6 py-2 bg-brand-accent hover:bg-brand-accent-light text-white rounded-lg transition-colors">Clear Filters</button>
           <div style="margin-top: 1rem; text-align: center;">
