@@ -5,6 +5,7 @@ import alpinejs from '@astrojs/alpinejs';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://bossenterprise.co.za',
   vite: {
     plugins: [tailwindcss()],
   },
